@@ -1,0 +1,172 @@
+.radio.inline, .checkbox.inline {
+	padding-top: 0;
+	padding-bottom: 10px;
+}
+
+.navbar-inner a{
+	cursor: pointer;
+}
+
+.container{
+	
+}
+
+#start{
+	margin-top: 10px;
+}
+
+#card-wrapper,
+#controls{
+	text-align: center;
+	width: 100%;
+}
+
+#previous,
+#next{
+	vertical-align: 185px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 64px;
+	height: 64px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+#previous{
+	background: url(../img/previous.png);
+	background-size: 100%;
+}
+
+#card{
+	width: 312px;
+	height: 445px;
+	display: inline-block;
+	position: relative;
+}
+
+#card-bgs{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#card-bgs li{
+	width: 312px;
+	height: 445px;
+}
+
+#card-bg-1{
+	display: block;
+	background-repeat: no-repeat !important;
+}
+
+#card-bg-2{
+	display: none;
+	background-repeat: no-repeat !important;
+}
+
+#card-bg-3{
+	display: none;
+	background-repeat: no-repeat !important;
+}
+
+#card-bg-4{
+	display: none;
+	background-repeat: no-repeat !important;
+}
+
+#card-bg-5{
+	display: none;
+	background-repeat: no-repeat !important;
+}
+
+#card-art{
+	background-repeat: no-repeat !important;
+	background-size: 102%;
+	width: 275px;
+	height: 205px;
+	position: absolute;
+	top: 45px;
+	left: 19px;
+}
+
+#next{
+	background: url(../img/next.png);
+	background-size: 100%;
+}
+
+#card-count-wrapper,
+#timer-wrapper,
+#buttons-wrapper{
+	display: inline-block;
+}
+
+#card-count-wrapper,
+#timer-wrapper{
+	text-align: left;
+}
+
+#buttons-wrapper{
+	width: 135px;
+	text-align: right;
+}
+
+#card-count-wrapper{
+	width: 85px;
+}
+
+#timer-wrapper{
+	width: 85px;
+}
+
+#footer{
+	text-align: center;
+	font-size: 80%;
+}
+
+/* Portrait phones and down */
+@media (max-width: 320px) {
+	#card{
+		width: 191px;
+		height: 271px;
+	}
+	
+	#card-art{
+		background-size: 62% !important;
+		top: 27px;
+		left: 10px;
+	}
+	
+	#card-bgs li {
+		background-size: 61% !important;
+		width: 312px;
+		height: 445px;
+	}
+	
+	#buttons-wrapper{
+		width: 90px;
+		text-align: right;
+	}
+	
+	#card-count-wrapper small,
+	#timer-wrapper small{
+		font-size: 70%;
+	}
+	
+	#match,
+	#done{
+		padding: 0 6px;
+		font-size: 10.5px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	
+	#card-count-wrapper{
+		width: 50px;
+	}
+	
+	#timer-wrapper{
+		width: 44px;
+	}
+}

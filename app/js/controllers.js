@@ -2,10 +2,22 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
+angular.module('merlin.controllers', []).
+  controller('HomeCtrl', [function() {
 
   }])
-  .controller('MyCtrl2', [function() {
+  .controller('TrainCtrl', [function() {
+
+  }])
+  .controller('CompeteCtrl', [function() {
+
+  }])
+  .controller('HowToCtrl', [function() {
+
+  }])
+  .controller('ProfileCtrl', [function() {
+
+  }])
+  .controller('RankingsCtrl', [function() {
 
   }]);
