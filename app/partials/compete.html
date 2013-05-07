@@ -6,7 +6,7 @@
 </div>
 <div class="row">
 	<div class="span9">
-		<select id="language"></select>
+		<select ng-model="language" ng-options="l.value as l.name for l in languages"></select>
 	</div>
 </div>
 <div class="row">
@@ -16,7 +16,7 @@
 </div>
 <div class="row">
 	<div class="span9">
-		<select id="set"></select>
+		 <select ng-model="cardSet" ng-options="c.value as c.name group by c.category for c in cardSets"></select>
 	</div>
 </div>
 <div class="row">
@@ -27,33 +27,33 @@
 <div class="row">
 	<div class="span9">
 		<label class="radio inline">
-			<input type="radio" name="optionsCount" id="optionsCount1" value="15" checked>
+			<input type="radio" name="optionsCount" id="optionsCount1" value="15" checked ng-model="cardCount">
 			15 </label>
 		<label class="radio inline">
-			<input type="radio" name="optionsCount" id="optionsCount2" value="25">
+			<input type="radio" name="optionsCount" id="optionsCount2" value="25" ng-model="cardCount">
 			25 </label>
 		<label class="radio inline">
-			<input type="radio" name="optionsCount" id="optionsCount3" value="50">
+			<input type="radio" name="optionsCount" id="optionsCount3" value="50" ng-model="cardCount">
 			50 </label>
 		<label class="radio inline">
-			<input type="radio" name="optionsCount" id="optionsCount4" value="100">
+			<input type="radio" name="optionsCount" id="optionsCount4" value="100" ng-model="cardCount">
 			100 </label>
 		<label class="radio inline">
-			<input type="radio" name="optionsCount" id="optionsCount5" value="all">
+			<input type="radio" name="optionsCount" id="optionsCount5" value="all" ng-model="cardCount">
 			All </label>
 	</div>
 </div>
 <div class="row">
 	<div class="span9">
 		<label class="checkbox">
-			<input id="inverseCheckbox" type="checkbox" value="inverse">
+			<input id="inverseCheckbox" type="checkbox" ng-model="inverse" ng-true-value="true" ng-false-value="false">
 			Inverse </label>
 	</div>
 </div>
 <div class="row">
 	<div class="span9">
-		<button id="start" type="button" class="btn">
+		<a href="#/play" class="btn" ng-click="createGame()">
 			Start
-		</button>
+		</a>
 	</div>
 </div>

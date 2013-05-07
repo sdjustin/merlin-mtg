@@ -1,0 +1,17 @@
+{
+	"en": [
+		{
+			"category": "Core Set Editions",
+			"setName": "Magic 2013",
+			"setCode": "m13",
+			"setCount": 249, 
+			"blacklist": [56, 97, 123, 174, 199]
+		}, {
+			"category": "Core Set Editions",
+			"setName": "Magic 2012",
+			"setCode": "m12",
+			"setCount": 249,
+			"blacklist": [16, 58, 109, 124, 174]
+		}
+	]
+}

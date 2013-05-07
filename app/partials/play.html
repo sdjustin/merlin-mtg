@@ -1,0 +1,34 @@
+<div id="card-wrapper">
+	<div id="previous" class="hidden-phone" ng-click="previous()" previous>
+		<!-- Image defined in style.css -->
+	</div>
+	<div id="card">
+		<div id="card-art">
+			<img ng-src="{{art}}"/>
+		</div>
+		<ul id="card-bgs">
+			<li ng-repeat="bg in bgList" ng-class="{current : $first}"> <!-- class="current" -->
+				<img ng-src="{{bg}}"/>
+			</li>
+		</ul>
+	</div>
+	<div id="next" class="hidden-phone" ng-click="next()" next>
+		<!-- Image defined in style.css -->
+	</div>
+</div>
+<div id="controls">
+	<div id="card-count-wrapper">
+		<small id="card-count">{{currentCard}}/{{cardSetCount}}</small>
+	</div>
+	<div id="timer-wrapper">
+		<small timer>{{timer}}</small>
+	</div>
+	<div id="buttons-wrapper">
+		<button id="match" type="button" class="btn btn-primary" ng-click="match()">
+			Match
+		</button>
+		<button id="done" type="button" class="btn" ng-click="done()">
+			Done
+		</button>
+	</div>
+</div>

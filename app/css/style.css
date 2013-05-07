@@ -53,31 +53,16 @@
 #card-bgs li{
 	width: 312px;
 	height: 445px;
+	display: none;
+	background-repeat: no-repeat !important;
 }
 
-#card-bg-1{
+#card-bgs li img{
+	vertical-align: baseline;
+}
+
+#card-bgs li.current{
 	display: block;
-	background-repeat: no-repeat !important;
-}
-
-#card-bg-2{
-	display: none;
-	background-repeat: no-repeat !important;
-}
-
-#card-bg-3{
-	display: none;
-	background-repeat: no-repeat !important;
-}
-
-#card-bg-4{
-	display: none;
-	background-repeat: no-repeat !important;
-}
-
-#card-bg-5{
-	display: none;
-	background-repeat: no-repeat !important;
 }
 
 #card-art{
