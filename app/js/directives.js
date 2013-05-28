@@ -15,12 +15,13 @@ angular.module('merlin.directives', []).
   		link: function(scope, element, attrs){
   			$(element).on('click', function(){
   				var $current = $('.current');
-				$current.removeClass('current').hide();
+				$current.removeClass('current');
 				if($current.prev().size() !== 0){
 					$current.prev().addClass('current').show();
 				}else{
 					$('#card-bgs li:last-child').addClass('current').show();
 				}
+				scope.currentBg = $current.find('img').attr('src');
   			});
   		}
   	}
@@ -31,12 +32,24 @@ angular.module('merlin.directives', []).
   		link: function(scope, element, attrs){
   			$(element).on('click', function(){
 	  			var $current = $('.current');
-				$current.removeClass('current').hide();
+				$current.removeClass('current');
 				if($current.next().size() !== 0){
 					$current.next().addClass('current').show();
 				}else{
 					$('#card-bgs li:first-child').addClass('current').show();
 				}
+				scope.currentBg = $current.find('img').attr('src');
+			});
+  		}
+  	}
+  }]).
+  directive('match', [function(){
+  	return {
+  		restrict: 'A',
+  		link: function(scope, element, attrs){
+  			$(element).on('click', function(){
+	  			$('.current').removeClass('current');
+	  			$('#card-bgs li').first().addClass('current');
 			});
   		}
   	}

@@ -7,7 +7,7 @@
 			<img ng-src="{{art}}"/>
 		</div>
 		<ul id="card-bgs">
-			<li ng-repeat="bg in bgList" ng-class="{current : $first}"> <!-- class="current" -->
+			<li ng-repeat="bg in bgList" ng-class="{current : $first}">
 				<img ng-src="{{bg}}"/>
 			</li>
 		</ul>
@@ -24,7 +24,7 @@
 		<small timer>{{timer}}</small>
 	</div>
 	<div id="buttons-wrapper">
-		<button id="match" type="button" class="btn btn-primary" ng-click="match()">
+		<button id="match" type="button" class="btn btn-primary" ng-click="match()" match>
 			Match
 		</button>
 		<button id="done" type="button" class="btn" ng-click="done()">

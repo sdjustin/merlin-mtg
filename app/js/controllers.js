@@ -21,23 +21,31 @@ angular.module('merlin.controllers', []).
 		];
 		$scope.cardSet = 'm12';
 		
-		$scope.cardCount = '25';
+		$scope.cardCount = '3';
 		
 		$scope.createGame = function(){
 			GameEngineService.createGame($scope.language, $scope.cardSet, $scope.cardCount, $scope.inverse);	
 		}
 	}])
-	.controller('PlayCtrl', ['$scope', '$timeout', 'GameEngineService', function($scope, $timeout, GameEngineService) {
+	.controller('PlayCtrl', ['$scope', '$timeout', '$location', 'GameEngineService', function($scope, $timeout, $location, GameEngineService) {
 		var gameEngine = GameEngineService.getCurrentCard();
+		if(gameEngine === false) $location.path('/compete');
 		$scope.art = gameEngine.toURL();
 		$scope.bgList = gameEngine.getBgURLs();
 		$scope.cardSetCount = gameEngine.list.length;
 		$scope.currentCard = 1;
+		$scope.currentBg = $scope.bgList[0];
 		
 		$scope.timer = '00:00:00';
 		
 		$scope.match = function(){
-			// TODO check if answer is correct
+			if($scope.currentCard === $scope.cardSetCount){
+				$scope.done();
+			}
+			
+			if($scope.art === $scope.currentBg){
+				GameEngineService.incrementCorrectCount();
+			}
 			
 			var gameEngine = GameEngineService.nextCard();
 			$scope.art = gameEngine.toURL();
@@ -46,7 +54,7 @@ angular.module('merlin.controllers', []).
 		}
 		
 		$scope.done = function(){
-			console.log('done pressed');
+			$location.path('/done');
 		}
 	}])
 	.controller('HowToCtrl', [function() {
@@ -57,4 +65,8 @@ angular.module('merlin.controllers', []).
 	}])
 	.controller('RankingsCtrl', [function() {
 	
+	}])
+	.controller('DoneCtrl', [function() {
+	
 	}]);
+	

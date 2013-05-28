@@ -10,5 +10,6 @@ angular.module('merlin', ['merlin.filters', 'merlin.services', 'merlin.directive
     $routeProvider.when('/how-to', {templateUrl: 'partials/howto.html', controller: 'HowToCtrl'});
     $routeProvider.when('/profile', {templateUrl: 'partials/profile.html', controller: 'ProfileCtrl'});
     $routeProvider.when('/rankings', {templateUrl: 'partials/rankings.html', controller: 'RankingsCtrl'});
+    $routeProvider.when('/done', {templateUrl: 'partials/done.html', controller: 'DoneCtrl'});
     $routeProvider.otherwise({redirectTo: '/home'});
   }]);
