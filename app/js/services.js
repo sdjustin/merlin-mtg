@@ -67,7 +67,9 @@ angular.module('merlin.services', []).value('version', '0.1')
 		};
 		
 		var _generateRandomBgList = function(){
-			_cardQueue.bgList = _generateUniqueList(3, _currentCardSet.setCount, _currentCardSet.blacklist);
+			_currentCardSet.blacklist.push(_cardQueue.list[0]);
+			_cardQueue.bgList = _generateUniqueList(2, _currentCardSet.setCount, _currentCardSet.blacklist);
+			_currentCardSet.blacklist.pop();
 			_cardQueue.bgList.splice(Math.floor(Math.random() * 3), 0, _cardQueue.list[0]);
 		};
 	

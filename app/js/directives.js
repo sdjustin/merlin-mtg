@@ -21,7 +21,7 @@ angular.module('merlin.directives', []).
 				}else{
 					$('#card-bgs li:last-child').addClass('current').show();
 				}
-				scope.currentBg = $current.find('img').attr('src');
+				scope.currentBg = $('.current').find('img').attr('src');
   			});
   		}
   	}
@@ -38,7 +38,7 @@ angular.module('merlin.directives', []).
 				}else{
 					$('#card-bgs li:first-child').addClass('current').show();
 				}
-				scope.currentBg = $current.find('img').attr('src');
+				scope.currentBg = $('.current').find('img').attr('src');
 			});
   		}
   	}
@@ -50,6 +50,12 @@ angular.module('merlin.directives', []).
   			$(element).on('click', function(){
 	  			$('.current').removeClass('current');
 	  			$('#card-bgs li').first().addClass('current');
+	  			$('.right, .wrong').hide();
+	  			if(scope.correctMatch){
+	  				$('.right').fadeIn().delay(2000).fadeOut();
+	  			}else{
+	  				$('.wrong').fadeIn().delay(2000).fadeOut();
+	  			}
 			});
   		}
   	}

@@ -82,7 +82,8 @@
 
 #card-count-wrapper,
 #timer-wrapper,
-#buttons-wrapper{
+#buttons-wrapper,
+#right-wrong-icons{
 	display: inline-block;
 }
 
@@ -101,7 +102,28 @@
 }
 
 #timer-wrapper{
-	width: 85px;
+	width: 55px;
+}
+
+#right-wrong-icons{
+	margin-bottom: -10px;
+}
+
+#right-wrong-icons,
+.right,
+.wrong{
+	width: 30px;
+	height: 30px;
+}
+
+.right{
+	display: none;
+	background-image: url(../img/check-mark.png);
+}
+
+.wrong{
+	display: none;
+	background-image: url(../img/red_x.png);
 }
 
 #footer{
