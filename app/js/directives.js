@@ -64,7 +64,9 @@ angular.module('merlin.directives', []).
   	return {
   		restrict: 'A',
   		link: function(scope, element, attrs){
-  			$(element).stopwatch().stopwatch('start');
+  			$(element).stopwatch().on('tick.stopwatch', function(e, elapsed){
+  				scope.timer = elapsed;
+  			}).stopwatch('start');
 		}
   	}
   }]);

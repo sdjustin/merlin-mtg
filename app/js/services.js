@@ -25,6 +25,7 @@ angular.module('merlin.services', []).value('version', '0.1')
 		var _score = new Object();
 			_score.correctCount = 0;
 			_score.gameTime = 0;
+			_score.total = 0;
 	
 		$http.get('card-index.json').success(function(data) {
 			_cardIndex = data;
@@ -77,6 +78,7 @@ angular.module('merlin.services', []).value('version', '0.1')
 			createGame : function(language, cardSet, cardCount, inverse) {
 				if(_setCurrentCardSet(language, cardSet)){
 					_cardQueue.list = _generateUniqueList(cardCount, _currentCardSet.setCount, _currentCardSet.blacklist);
+					_score.total = cardCount;
 				}else{
 					console.error('Something went wrong with creating game.');	
 				}
@@ -93,7 +95,7 @@ angular.module('merlin.services', []).value('version', '0.1')
 				return _cardQueue;
 			},
 			incrementCorrectCount : function() {
-				_score.correctCount++;
+				++_score.correctCount;
 			},
 			setGameTime : function(gameTime){
 				_score.gameTime = gameTime;

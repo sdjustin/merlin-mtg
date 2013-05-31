@@ -60,6 +60,7 @@ angular.module('merlin.controllers', []).
 		}
 		
 		$scope.done = function(){
+			GameEngineService.setGameTime(jintervals($scope.timer/1000, "{M} min, {S} sec"));
 			$location.path('/done');
 		}
 	}])
@@ -72,7 +73,7 @@ angular.module('merlin.controllers', []).
 	.controller('RankingsCtrl', [function() {
 	
 	}])
-	.controller('DoneCtrl', [function() {
-	
+	.controller('DoneCtrl', ['$scope', 'GameEngineService', function($scope, GameEngineService) {
+		$scope.scoreResults = GameEngineService.getScore();
 	}]);
 	
