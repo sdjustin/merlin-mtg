@@ -6,10 +6,7 @@ angular.module('merlin.controllers', []).
 	controller('HomeCtrl', [function() {
 	
 	}])
-	.controller('TrainCtrl', [function() {
-	
-	}])
-	.controller('CompeteCtrl', ['$scope', 'GameEngineService', function($scope, GameEngineService) {
+	.controller('PlayCtrl', ['$scope', 'GameEngineService', function($scope, GameEngineService) {
 		$scope.languages = [
 			{name:'English', value:"en"}
 		];
@@ -23,14 +20,16 @@ angular.module('merlin.controllers', []).
 		
 		$scope.cardCount = '3';
 		
+		$scope.gameType = 'train';
+		
 		$scope.createGame = function(){
-			GameEngineService.createGame($scope.language, $scope.cardSet, $scope.cardCount, $scope.inverse);	
+			GameEngineService.createGame($scope.language, $scope.cardSet, $scope.cardCount, $scope.inverse, $scope.gameType);	
 		}
 	}])
-	.controller('PlayCtrl', ['$scope', '$timeout', '$location', 'GameEngineService', function($scope, $timeout, $location, GameEngineService) {
+	.controller('GameCtrl', ['$scope', '$timeout', '$location', 'GameEngineService', function($scope, $timeout, $location, GameEngineService) {
 		var gameEngine = GameEngineService.getCurrentCard();
-		// Page refresh was hit, go back to compete page
-		if(gameEngine === false) $location.path('/compete');
+		// Page refresh was hit, go back to play page
+		if(gameEngine === false) $location.path('/play');
 		$scope.art = gameEngine.toURL();
 		$scope.bgList = gameEngine.getBgURLs();
 		$scope.cardSetCount = gameEngine.list.length;
@@ -39,6 +38,8 @@ angular.module('merlin.controllers', []).
 		$scope.inverseClass = GameEngineService.getInverseClass();
 		
 		$scope.timer = '00:00:00';
+		
+		$scope.gameType = GameEngineService.getGameType();
 		
 		$scope.match = function(){			
 			if($scope.art.replace('-art','') === $scope.currentBg.replace('-bg','')){
@@ -60,6 +61,10 @@ angular.module('merlin.controllers', []).
 			$scope.currentCard++;
 		}
 		
+		$scope.showAnswer = function(){
+			
+		}
+		
 		$scope.done = function(){
 			GameEngineService.setGameTime(jintervals($scope.timer/1000, "{h} hour, {m} min, {s} sec"));
 			$location.path('/done');
@@ -76,17 +81,17 @@ angular.module('merlin.controllers', []).
 	}])
 	.controller('DoneCtrl', ['$scope', '$location', 'GameEngineService', function($scope, $location, GameEngineService) {
 		var score = GameEngineService.getScore();
-		// Page refresh was hit, go back to compete page
-		if(score.gameTime === 0) $location.path('/compete');
+		// Page refresh was hit, go back to play page
+		if(score.gameTime === 0) $location.path('/play');
 		$scope.scoreResults = score;
 		
 		$scope.again = function(){
 			GameEngineService.resetGame();
-			$location.path('/play');
+			$location.path('/game');
 		}
 		
 		$scope.reset = function(){
-			$location.path('/compete');
+			$location.path('/play');
 		}
 	}]);
 	

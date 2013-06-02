@@ -76,13 +76,14 @@ angular.module('merlin.services', []).value('version', '0.1')
 		};
 	
 		return {
-			createGame : function(language, cardSet, cardCount, inverse) {
+			createGame : function(language, cardSet, cardCount, inverse, gameType) {
 				_score.correctCount = 0;
 				_score.gameTime = 0;
 				_gameParameters.language = language;
 				_gameParameters.cardSet = cardSet;
 				_gameParameters.cardCount = cardCount;
 				_gameParameters.inverse = inverse;
+				_gameParameters.gameType = gameType;
 				if(_setCurrentCardSet(language, cardSet)){
 					_cardQueue.list = _generateUniqueList(cardCount, _currentCardSet.setCount, _currentCardSet.blacklist);
 					_score.total = cardCount;
@@ -113,6 +114,9 @@ angular.module('merlin.services', []).value('version', '0.1')
 			},
 			incrementCorrectCount : function() {
 				++_score.correctCount;
+			},
+			getGameType : function(){
+				return _gameParameters.gameType;
 			},
 			setGameTime : function(gameTime){
 				_score.gameTime = gameTime;

@@ -1,38 +1,77 @@
-<div id="card-wrapper">
-	<div id="previous" class="hidden-phone" ng-click="previous()" previous>
-		<!-- Image defined in style.css -->
-	</div>
-	<div id="card" class="{{inverseClass}}">
-		<div id="card-art">
-			<img ng-src="{{art}}"/>
-		</div>
-		<ul id="card-bgs">
-			<li ng-repeat="bg in bgList" ng-class="{current : $first}">
-				<img ng-src="{{bg}}"/>
-			</li>
-		</ul>
-	</div>
-	<div id="next" class="hidden-phone" ng-click="next()" next>
-		<!-- Image defined in style.css -->
+<h1>Play</h1>
+<div class="row">
+	<div class="span9">
+		<label>Language:</label>
 	</div>
 </div>
-<div id="controls">
-	<div id="card-count-wrapper">
-		<small id="card-count">{{currentCard}}/{{cardSetCount}}</small>
+<div class="row">
+	<div class="span9">
+		<select ng-model="language" ng-options="l.value as l.name for l in languages"></select>
 	</div>
-	<div id="timer-wrapper">
-		<small timer><!-- Place holder --></small>
+</div>
+<div class="row">
+	<div class="span9">
+		<label>Set(s):</label>
 	</div>
-	<div id="right-wrong-icons">
-		<div class="right"><!-- Image defined in style.css --></div>
-		<div class="wrong"><!-- Image defined in style.css --></div>
+</div>
+<div class="row">
+	<div class="span9">
+		 <select ng-model="cardSet" ng-options="c.value as c.name group by c.category for c in cardSets"></select>
 	</div>
-	<div id="buttons-wrapper">
-		<button id="match" type="button" class="btn btn-primary" ng-click="match()" match>
-			Match
-		</button>
-		<button id="done" type="button" class="btn" ng-click="done()">
-			Done
-		</button>
+</div>
+<div class="row">
+	<div class="span9">
+		<label>Game Type:</label>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		<label class="radio inline">
+			<input type="radio" name="optionsGameType" id="optionsGameType1" value="train" checked ng-model="gameType">
+			Train </label>
+		<label class="radio inline">
+			<input type="radio" name="optionsGameType" id="optionsGameType2" value="compete" checked ng-model="gameType">
+			Compete </label>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		<label>Card Count:</label>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		<label class="radio inline">
+			<input type="radio" name="optionsCount" id="optionsCount1" value="3" checked ng-model="cardCount">
+			3 </label>
+		<label class="radio inline">
+			<input type="radio" name="optionsCount" id="optionsCount1" value="15" checked ng-model="cardCount">
+			15 </label>
+		<label class="radio inline">
+			<input type="radio" name="optionsCount" id="optionsCount2" value="25" ng-model="cardCount">
+			25 </label>
+		<label class="radio inline">
+			<input type="radio" name="optionsCount" id="optionsCount3" value="50" ng-model="cardCount">
+			50 </label>
+		<label class="radio inline">
+			<input type="radio" name="optionsCount" id="optionsCount4" value="100" ng-model="cardCount">
+			100 </label>
+		<label class="radio inline">
+			<input type="radio" name="optionsCount" id="optionsCount5" value="all" ng-model="cardCount">
+			All </label>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		<label class="checkbox">
+			<input id="inverseCheckbox" type="checkbox" ng-model="inverse" ng-true-value="inverse" ng-false-value="">
+			Inverse </label>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		<a href="#/game" class="btn" ng-click="createGame()">
+			Start
+		</a>
 	</div>
 </div>
