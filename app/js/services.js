@@ -6,6 +6,7 @@
 // In this case it is a simple value service.
 angular.module('merlin.services', []).value('version', '0.1')
 	.factory('GameEngineService', function($http) {
+		var _gameParameters = new Object();
 		var _cardIndex;
 		var _currentCardSet;
 		var _cardQueue = new Object();
@@ -76,11 +77,27 @@ angular.module('merlin.services', []).value('version', '0.1')
 	
 		return {
 			createGame : function(language, cardSet, cardCount, inverse) {
+				_score.correctCount = 0;
+				_score.gameTime = 0;
+				_gameParameters.language = language;
+				_gameParameters.cardSet = cardSet;
+				_gameParameters.cardCount = cardCount;
+				_gameParameters.inverse = inverse;
 				if(_setCurrentCardSet(language, cardSet)){
 					_cardQueue.list = _generateUniqueList(cardCount, _currentCardSet.setCount, _currentCardSet.blacklist);
 					_score.total = cardCount;
 				}else{
 					console.error('Something went wrong with creating game.');	
+				}
+			},
+			resetGame : function(){
+				_score.correctCount = 0;
+				_score.gameTime = 0;
+				if(_setCurrentCardSet(_gameParameters.language, _gameParameters.cardSet)){
+					_cardQueue.list = _generateUniqueList(_gameParameters.cardCount, _currentCardSet.setCount, _currentCardSet.blacklist);
+					_score.total = _gameParameters.cardCount;
+				}else{
+					console.error('Something went wrong with resetting game.');	
 				}
 			},
 			nextCard : function(){
@@ -99,6 +116,9 @@ angular.module('merlin.services', []).value('version', '0.1')
 			},
 			setGameTime : function(gameTime){
 				_score.gameTime = gameTime;
+			},
+			getInverseClass : function(){
+				return _gameParameters.inverse;
 			},
 			getScore : function(){
 				return _score;

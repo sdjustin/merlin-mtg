@@ -131,6 +131,12 @@
 	font-size: 80%;
 }
 
+.inverse{
+	transform: rotate(180deg);
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Safari and Chrome */
+}
+
 /* Portrait phones and down */
 @media (max-width: 320px) {
 	#card{

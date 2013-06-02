@@ -36,6 +36,7 @@ angular.module('merlin.controllers', []).
 		$scope.cardSetCount = gameEngine.list.length;
 		$scope.currentCard = 1;
 		$scope.currentBg = $scope.bgList[0];
+		$scope.inverseClass = GameEngineService.getInverseClass();
 		
 		$scope.timer = '00:00:00';
 		
@@ -73,7 +74,19 @@ angular.module('merlin.controllers', []).
 	.controller('RankingsCtrl', [function() {
 	
 	}])
-	.controller('DoneCtrl', ['$scope', 'GameEngineService', function($scope, GameEngineService) {
-		$scope.scoreResults = GameEngineService.getScore();
+	.controller('DoneCtrl', ['$scope', '$location', 'GameEngineService', function($scope, $location, GameEngineService) {
+		var score = GameEngineService.getScore();
+		// Page refresh was hit, go back to compete page
+		if(score.gameTime === 0) $location.path('/compete');
+		$scope.scoreResults = score;
+		
+		$scope.again = function(){
+			GameEngineService.resetGame();
+			$location.path('/play');
+		}
+		
+		$scope.reset = function(){
+			$location.path('/compete');
+		}
 	}]);
 	

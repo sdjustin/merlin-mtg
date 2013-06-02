@@ -1,3 +1,5 @@
-<div>{{scoreResults.gameTime}}</div>
-<div>{{scoreResults.correctCount}}</div>
-<div>{{scoreResults.total}}</div>
+<h2>Your Results</h2>
+<p><strong>Time:</strong> {{scoreResults.gameTime}}</p>
+<p><strong>Correct/Incorrect:</strong> {{scoreResults.correctCount}}/{{scoreResults.total-scoreResults.correctCount}}</p>
+<button ng-click="again()" class="btn">Try Again</button>
+<button ng-click="reset()" class="btn">Reset</button>

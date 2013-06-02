@@ -2,7 +2,7 @@
 	<div id="previous" class="hidden-phone" ng-click="previous()" previous>
 		<!-- Image defined in style.css -->
 	</div>
-	<div id="card">
+	<div id="card" class="{{inverseClass}}">
 		<div id="card-art">
 			<img ng-src="{{art}}"/>
 		</div>
@@ -21,7 +21,7 @@
 		<small id="card-count">{{currentCard}}/{{cardSetCount}}</small>
 	</div>
 	<div id="timer-wrapper">
-		<small timer></small>
+		<small timer><!-- Place holder --></small>
 	</div>
 	<div id="right-wrong-icons">
 		<div class="right"><!-- Image defined in style.css --></div>
