@@ -61,7 +61,7 @@ angular.module('merlin.controllers', []).
 		}
 		
 		$scope.done = function(){
-			GameEngineService.setGameTime(jintervals($scope.timer/1000, "{M} min, {S} sec"));
+			GameEngineService.setGameTime(jintervals($scope.timer/1000, "{h} hour, {m} min, {s} sec"));
 			$location.path('/done');
 		}
 	}])
