@@ -21,6 +21,26 @@
 </div>
 <div class="row">
 	<div class="span9">
+		<label>Color(s):</label>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		 <select multiple="multiple" size="6" ng-model="cardColor" ng-options="c.value as c.name for c in cardColors"></select>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		<label>Type(s):</label>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
+		 <select multiple="multiple" size="5" ng-model="cardType" ng-options="c.value as c.name for c in cardTypes"></select>
+	</div>
+</div>
+<div class="row">
+	<div class="span9">
 		<label>Game Type:</label>
 	</div>
 </div>

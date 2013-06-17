@@ -48,14 +48,28 @@ angular.module('merlin.directives', []).
   		restrict: 'A',
   		link: function(scope, element, attrs){
   			$(element).on('click', function(){
-	  			$('.current').removeClass('current');
-	  			$('#card-bgs li').first().addClass('current');
+	  			if(scope.gameType === 'compete'){ // immediately advance to next card
+		  			$('.current').removeClass('current');
+		  			$('#card-bgs li').first().addClass('current');
+		  		}
 	  			$('.right, .wrong').hide();
 	  			if(scope.correctMatch){
-	  				$('.right').fadeIn().delay(2000).fadeOut();
+	  				$('.right').fadeIn().delay(2000);
 	  			}else{
-	  				$('.wrong').fadeIn().delay(2000).fadeOut();
+	  				$('.wrong').fadeIn().delay(2000);
 	  			}
+			});
+  		}
+  	}
+  }]).
+  directive('advance', [function(){
+  	return {
+  		restrict: 'A',
+  		link: function(scope, element, attrs){
+  			$(element).on('click', function(){
+	  			$('.right, .wrong').hide();
+	  			$('.current').removeClass('current');
+	  			$('#card-bgs li').first().addClass('current');
 			});
   		}
   	}

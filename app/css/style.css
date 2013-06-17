@@ -137,6 +137,10 @@
 	-webkit-transform: rotate(180deg); /* Safari and Chrome */
 }
 
+#preLoadingZone{
+	display: none;
+}
+
 /* Portrait phones and down */
 @media (max-width: 320px) {
 	#card{
