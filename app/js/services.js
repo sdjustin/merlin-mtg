@@ -5,12 +5,15 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('merlin.services', []).value('version', '0.1')
+	.factory('UserService', function($http){
+	
+	})
 	.factory('GameEngineService', function($http) {
 		var _gameParameters = new Object();
 		var _cardIndex;
 		var _currentCardSet;
 		var _cardQueue = new Object();
-				_cardQueue.s3URL = 'http://s3.amazonaws.com/merlin-mtg/cards';//'img/sample';
+				_cardQueue.s3URL = 'cards';//'http://s3.amazonaws.com/merlin-mtg/cards';//'img/sample';
 				_cardQueue.toURL = function(){
 					return _cardQueue.s3URL+'/'+_cardQueue.language+'/'+_cardQueue.cardSet+'/'+_cardQueue.language+'-'+_cardQueue.cardSet+'-'+_cardQueue.list[0]+'-art.jpg';	
 				};
@@ -90,7 +93,7 @@ angular.module('merlin.services', []).value('version', '0.1')
 						colorArrays = colorArrays.concat(_currentCardSet.red);
 						break;
 					case "green":
-						colorArrays = colorArrays.concat(_currentCardSet.white);
+						colorArrays = colorArrays.concat(_currentCardSet.green);
 						break;
 					case "multicolored":
 						colorArrays = colorArrays.concat(_currentCardSet.multicolored);

@@ -13,8 +13,7 @@ angular.module('merlin.controllers', []).
 		$scope.language = "en";
 		
 		$scope.cardSets = [
-		    {name:'Magic 2013', value:"m13", category:'Core Sets'},
-		    {name:'Magic 2012', value:"m12", category:'Core Sets'}
+		    {name:'Magic 2013', value:"m13", category:'Core Sets'}
 		];
 		$scope.cardSet = 'm13';
 		
@@ -107,9 +106,6 @@ angular.module('merlin.controllers', []).
 	
 	}])
 	.controller('ProfileCtrl', [function() {
-	
-	}])
-	.controller('RankingsCtrl', [function() {
 	
 	}])
 	.controller('DoneCtrl', ['$scope', '$location', 'GameEngineService', function($scope, $location, GameEngineService) {
